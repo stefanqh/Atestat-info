@@ -1,0 +1,756 @@
+/* =========================================================
+   VARIABILE GLOBALE DE CULOARE ȘI STIL
+   ========================================================= */
+:root {
+  --pl-purple: #38003c;
+  --pl-green:  #00ff85;
+  --pl-white:  #f4f4f4;
+  --pl-grey:   #b0adb5;
+  --pl-card:   #1d0c20;
+  --pl-accent: #e90052;
+  --nav-h: 64px;
+  --transition: .35s cubic-bezier(.4,0,.2,1);
+}
+
+/* =========================================================
+   RESET ȘI STILURI DE BAZĂ
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--pl-purple);
+  color: var(--pl-white);
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   BARA DE NAVIGARE
+   ========================================================= */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: rgba(30, 4, 34, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,255,133,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  z-index: 1000;
+  animation: slideDown .6s ease both;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-lion {
+  width: 34px;
+  height: 34px;
+  fill: var(--pl-green);
+}
+
+.nav-brand-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.nav-brand-text {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: .12em;
+  color: var(--pl-white);
+}
+
+.nav-links {
+  display: flex;
+  gap: .2rem;
+  list-style: none;
+}
+
+    /* =========================================================
+       VARIABILE GLOBALE DE CULOARE ȘI STIL
+       Definim aici culorile principale ale site-ului o singură dată,
+       astfel încât să le putem folosi oriunde cu var(--nume).
+       --pl-purple = violet închis (fundalul principal)
+       --pl-green  = verde neon (accentul principal, culoarea PL)
+       --pl-white  = alb ușor crem (textul)
+       --pl-grey   = gri deschis (textul secundar, subtitluri)
+       --pl-card   = violet și mai închis (fundalul cardurilor)
+       --pl-accent = roșu aprins (accente secundare)
+       --nav-h     = înălțimea fixă a barei de navigare (64px)
+       --transition = durata și curba animațiilor hover
+       ========================================================= */
+    :root {
+      --pl-purple: #38003c;
+      --pl-green:  #00ff85;
+      --pl-white:  #f4f4f4;
+      --pl-grey:   #b0adb5;
+      --pl-card:   #1d0c20;
+      --pl-accent: #e90052;
+      --nav-h: 64px;
+      --transition: .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* =========================================================
+       RESET ȘI STILURI DE BAZĂ
+       Eliminăm marginile și padding-urile implicite ale browserului
+       pentru toate elementele, ca să avem control total asupra spațierii.
+       "box-sizing: border-box" face ca padding-ul să fie inclus în lățime,
+       nu adăugat pe deasupra — evităm astfel suprapuneri nedorite.
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--pl-purple);
+      color: var(--pl-white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* =========================================================
+       BARA DE NAVIGARE (fixă în partea de sus)
+       "position: fixed" o menține vizibilă chiar dacă utilizatorul
+       derulează pagina în jos. "backdrop-filter: blur" creează efectul
+       de sticlă frosted (fundalul din spate apare neclar/mat).
+       ANIMAȚIE: bara coboară din afara ecranului spre poziția ei
+       normală la încărcarea paginii (animația "slideDown").
+       ========================================================= */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(30, 4, 34, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,255,133,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      z-index: 1000;
+      animation: slideDown .6s ease both;
+    }
+
+    /* ANIMAȚIE — slideDown: bara de navigare pornește de sus (în afara ecranului,
+       translateY(-100%) = deplasată cu 100% din înălțimea ei în sus) și coboară
+       lin până la poziția normală (translateY(0)) în 0.6 secunde. */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to   { transform: translateY(0);     opacity: 1; }
+    }
+
+    /* LOGO / BRAND în bara de nav — conține iconița SVG și textul "Premier League".
+       Aranjăm elementele una lângă alta (flexbox) cu un spațiu de 0.7rem între ele. */
+       
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .nav-lion {
+      width: 34px;
+      height: 34px;
+      fill: var(--pl-green);
+    }
+
+    .nav-brand-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: .12em;
+      color: var(--pl-white);
+    }
+
+    /* CONTAINER-UL LINK-URILOR DE NAV — grupul de butoane din dreapta barei.
+       Folosim flexbox ca să le afișăm pe același rând, cu un mic spațiu între ele. */
+    .nav-links {
+      display: flex;
+      gap: .2rem;
+      list-style: none;
+    }
+
+    /* STILUL FIECĂRUI LINK DIN NAV — text mic, majuscule, spațiat.
+       Culoarea implicită este gri; la hover/activ devine alb.
+       "position: relative" este necesar pentru sublinierea animată de mai jos. */
+    .nav-links a {
+      display: block;
+      padding: .35rem .85rem;
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--pl-grey);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: color var(--transition), background var(--transition);
+      position: relative;
+    }
+
+    /* ANIMAȚIE — linie verde sub link la hover: folosim pseudo-elementul ::after
+       ca să desenăm o linie verde de 2px sub fiecare link. Implicit are scaleX(0)
+       (linia este invizibilă). La hover, scaleX devine 1 și linia apare de la stânga
+       spre dreapta cu o tranziție fluidă. */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: .85rem; right: .85rem;
+      height: 2px;
+      background: var(--pl-green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--pl-white);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    /* MENIU HAMBURGER (pentru ecrane mici / mobile) — cele 3 linii orizontale
+       care înlocuiesc bara de nav pe telefon. Implicit este ascuns (display:none)
+       și apare doar când lățimea ecranului scade sub 700px (vezi @media de mai jos).
+       Când meniul este deschis (.open), liniile se rotesc formând un "X" de închidere. */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--pl-white);
+      transition: transform var(--transition), opacity var(--transition);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* =========================================================
+       ZONA PRINCIPALĂ DE CONȚINUT
+       Adăugăm padding-top egal cu înălțimea barei de nav (64px),
+       astfel încât conținutul să nu fie ascuns sub bara fixă.
+       ========================================================= */
+    main {
+      padding-top: var(--nav-h);
+    }
+
+    /* PAGINI ASCUNSE IMPLICIT — fiecare secțiune de conținut (Home, Cap.1, Cap.2 etc.)
+       are clasa .page și este ascunsă cu display:none. Doar cea cu clasa .active
+       este vizibilă. Navigarea între pagini se face prin JavaScript (funcția showPage). */
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding-bottom: 5rem;
+    }
+
+    /* PAGINA ACTIVĂ — când JavaScript adaugă clasa .active pe o secțiune .page,
+       aceasta devine vizibilă (display:block). Doar o pagină are .active la un moment dat. */
+    .page.active {
+      display: block;
+    }
+
+    /* =========================================================
+       SECȚIUNEA HERO (pagina principală)
+       Aceasta este banda mare de introducere de pe pagina Home.
+       Ocupă înălțimea întregului ecran minus bara de nav.
+       Conținutul este centrat atât pe orizontală cât și pe verticală.
+       ANIMAȚIE: toate elementele din interior apar unul după altul
+       cu efect de fade-up (fadeIn + urcare de jos în sus).
+       ========================================================= */
+    .hero {
+      position: relative;
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      overflow: hidden;
+    }
+
+    /* FUNDAL DECORATIV AL HERO — pseudo-elementul ::before desenează două straturi:
+       1. O grilă de linii verticale verzi semi-transparente (ca liniile de pe teren)
+          folosind repeating-linear-gradient la fiecare 80px.
+       2. O lumină roșiatică difuză în jos, creată cu radial-gradient.
+       "pointer-events: none" face ca fundalul să nu blocheze click-urile.
+       ANIMAȚIE bgPulse: fundalul pulsează ușor între opacitate 0.7 și 1, la infinit. */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          rgba(0,255,133,.04) 0px,
+          rgba(0,255,133,.04) 1px,
+          transparent 1px,
+          transparent 80px
+        ),
+        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(233,0,82,.18) 0%, transparent 70%);
+      pointer-events: none;
+      /* ANIMAȚIE bgPulse: fundalul pulsează lent între 70% și 100% opacitate */
+      animation: bgPulse 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgPulse {
+      from { opacity: .7; }
+      to   { opacity: 1; }
+    }
+
+    /* CERC DECORATIV ÎN SPATELE TITLULUI — un cerc mare (600x600px) cu bordură
+       verde semi-transparentă, centrat perfect în hero.
+       ANIMAȚIE rotateSlow: cercul se rotește 360° în mod continuu la fiecare 40 secunde,
+       creând un efect subtil de mișcare în fundal. */
+    .hero-circle {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,255,133,.08);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation: rotateSlow 40s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes rotateSlow {
+      to { transform: translate(-50%,-50%) rotate(360deg); }
+    }
+
+    /* TEXTUL MIC DE DEASUPRA TITLULUI ("eyebrow") — scris cu majuscule și spațiere
+       mare între litere, în verde. Apare primul dintre elementele animate.
+       ANIMAȚIE fadeUp cu întârziere de 0.2s: pornește opac și deplasat în jos,
+       și urcă lin spre poziția finală în 0.8 secunde. */
+    .hero-eyebrow {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--pl-green);
+      margin-bottom: 1.2rem;
+      /* Fade-in animation: delay 0.2s */
+      animation: fadeUp .8s .2s both;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: 1;
+      letter-spacing: .04em;
+      color: var(--pl-white);
+      /* ANIMAȚIE fadeUp cu întârziere de 0.4s: titlul apare după textul eyebrow */
+      animation: fadeUp .8s .4s both;
+    }
+
+    .hero-title span {
+      color: var(--pl-green);
+    }
+
+    /* SUBTITLUL CU INFORMAȚII DESPRE AUTOR ȘI ȘCOALĂ — text gri, mic, sub titlu.
+       ANIMAȚIE fadeUp cu întârziere de 0.6s: apare al treilea în secvența hero. */
+    .hero-meta {
+      margin-top: 1rem;
+      font-size: .9rem;
+      color: var(--pl-grey);
+      line-height: 1.5;
+      /* ANIMAȚIE fadeUp cu întârziere de 0.6s: al treilea element care apare */
+      animation: fadeUp .8s .6s both;
+    }
+
+    /* PARAGRAFUL DE INTRODUCERE DIN HERO — textul scurt de descriere a site-ului,
+       limitat la 680px lățime pentru o citire confortabilă.
+       ANIMAȚIE fadeUp cu întârziere de 0.8s: apare al patrulea. */
+    .hero-intro {
+      max-width: 680px;
+      margin-top: 2.5rem;
+      font-size: 1.05rem;
+      color: rgba(244,244,244,.85);
+      /* ANIMAȚIE fadeUp cu întârziere de 0.8s: al patrulea element care apare */
+      animation: fadeUp .8s .8s both;
+    }
+
+    /* LINIA SEPARATOARE VERDE — o dungă orizontală verde (60px lățime, 3px înălțime)
+       care separă vizual subtitlul de paragraful de introducere.
+       ANIMAȚIE fadeUp cu întârziere de 1s: apare al cincilea element. */
+    .hero-divider {
+      width: 60px; height: 3px;
+      background: var(--pl-green);
+      margin: 2rem auto;
+      animation: fadeUp .8s 1s both;
+    }
+
+    /* INDICATORUL DE SCROLL — textul mic "scroll" cu o săgeată în jos, afișat
+       în centrul bazei hero-ului, pentru a sugera utilizatorului să deruleze.
+       ANIMAȚIE fadeUp cu întârziere de 1.2s: apare ultimul dintre elementele fixe. */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: var(--pl-grey);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      animation: fadeUp .8s 1.2s both;
+    }
+
+    /* ANIMAȚIE bounce pe săgeata SVG — săgeata se mișcă în sus și în jos
+       cu 6px la fiecare 1.8 secunde (la infinit), atrăgând atenția la scroll. */
+    .scroll-hint svg {
+      animation: bounce 1.8s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(6px); }
+    }
+
+    /* GRILA DE CARDURI DE CAPITOL (pagina Home) — afișează cele 5 capitole
+       ca niște carduri clicabile. Folosim CSS Grid cu coloane flexibile:
+       fiecare coloană are minim 240px și cresc egal să umple spațiul.
+       ANIMAȚIE fadeUp cu întârziere de 1.4s: întreaga grilă apare ultima. */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      max-width: 1100px;
+      margin: 3rem auto 0;
+      padding: 0 2rem;
+      /* Entire grid fades in late */
+      animation: fadeUp .8s 1.4s both;
+    }
+
+    .chapter-card {
+      background: var(--pl-card);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+      cursor: pointer;
+      transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* BARA VERDE PE MARGINEA STÂNGĂ A CARDULUI — pseudo-elementul ::before
+       desenează o dungă verde de 3px pe toată înălțimea cardului.
+       Implicit are scaleY(0) (invizibilă). La hover, apare de jos în sus
+       cu o tranziție fluidă (scaleY devine 1, cu transform-origin: bottom). */
+    .chapter-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--pl-green);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform var(--transition);
+    }
+
+    .chapter-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,255,133,.3);
+      box-shadow: 0 12px 40px rgba(0,0,0,.4);
+    }
+
+    .chapter-card:hover::before {
+      transform: scaleY(1);
+    }
+
+    .chapter-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem;
+      color: rgba(0,255,133,.18);
+      line-height: 1;
+    }
+
+    .chapter-title {
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--pl-white);
+      margin-top: .3rem;
+    }
+
+    /* =========================================================
+       ANTETUL PAGINILOR DE CAPITOL (1–5)
+       Fiecare pagină de capitol începe cu un header mare centrat,
+       cu eticheta "Chapter X", titlul capitolului și un număr decorativ
+       gigant în fundal (filigran vizual).
+       ========================================================= */
+    .page-header {
+      position: relative;
+      padding: 5rem 2rem 3.5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* NUMĂRUL DECORATIV ÎN FUNDAL — cifra capitolului (01, 02 etc.)
+       afișată extrem de mare, aproape invizibilă (opacitate 4%), centrată absolut
+       în header. Creează adâncime vizuală fără a distrage atenția de la titlu.  */
+
+    .page-header-num {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(8rem, 22vw, 18rem);
+      color: rgba(255, 255, 255, .05);
+      pointer-events: none;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .page-header-label {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .25em;
+      color: var(--pl-green);
+      text-transform: uppercase;
+      margin-bottom: .8rem;
+    }
+
+    .page-header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      letter-spacing: .04em;
+      line-height: 1.05;
+      position: relative;
+    }
+
+    /* =========================================================
+       STILURI PENTRU SUBCAPITOLE (blocuri de conținut)
+       Fiecare subcapitol (ex: 1.1, 1.2) este un .section-block.
+       Conținutul este limitat la 820px lățime și centrat pe pagină
+       pentru lizibilitate optimă.
+       ========================================================= */
+    .sections-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* BLOCUL UNUI SUBCAPITOL — implicit este invizibil (opacity: 0) și deplasat
+       cu 24px în jos (translateY). Când utilizatorul derulează și blocul intră
+       în viewport, JavaScript adaugă clasa .visible, iar tranziția CSS îl aduce
+       la opacitate 1 și poziție normală (efect fade-up la scroll). */
+    .section-block {
+      margin-bottom: 3.5rem;
+      /* ANIMAȚIE la scroll: blocul pornește invizibil și deplasat în jos */
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    /* STAREA VIZIBILĂ A UNUI BLOC — când IntersectionObserver detectează că blocul
+       a intrat în zona vizibilă a ecranului, JS adaugă clasa .visible.
+       Tranziția CSS îl aduce la opacity:1 și translateY(0) în 0.65 secunde. */
+    .section-block.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section-block h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: .06em;
+      color: var(--pl-green);
+      border-bottom: 1px solid rgba(0,255,133,.2);
+      padding-bottom: .5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-block p {
+      margin-bottom: 1rem;
+      color: rgba(244,244,244,.88);
+    }
+
+    /* LISTE CU PUNCTE ÎN BLOCURILE DE CONȚINUT — eliminăm punctele implicite
+       ale browserului (list-style:none) și le înlocuim manual cu simbolul ▸ verde,
+       adăugat prin pseudo-elementul ::before, pentru un aspect mai rafinat. */
+    .section-block ul {
+      list-style: none;
+      margin: .8rem 0 1.2rem 0;
+    }
+
+    .section-block ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: .5rem;
+      color: rgba(244,244,244,.85);
+    }
+
+    .section-block ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--pl-green);
+      font-size: .8rem;
+      top: .2em;
+    }
+
+    /* CASETELE DE TIP "CALLOUT" (statistici / fapte cheie) — dreptunghiuri cu fundal
+       verde semi-transparent și o bordură verde de 3px pe marginea stângă.
+       Sunt folosite pentru a evidenția informații importante din text. */
+    .callout {
+      background: rgba(0,255,133,.06);
+      border-left: 3px solid var(--pl-green);
+      border-radius: 0 6px 6px 0;
+      padding: 1rem 1.3rem;
+      margin: 1.2rem 0;
+      font-size: .95rem;
+    }
+
+    .callout strong {
+      color: var(--pl-green);
+    }
+
+    /* RÂNDUL DE STATISTICI — un rând flexibil de "pastile" (stat-pill) care afișează
+       cifre cheie (ex: "3 pts — Win"). Se pot împacheta pe mai multe rânduri (flex-wrap)
+       dacă nu încap toate pe o singură linie. */
+    .stat-row {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin: 1.2rem 0;
+    }
+
+    .stat-pill {
+      background: rgba(233,0,82,.12);
+      border: 1px solid rgba(233,0,82,.3);
+      border-radius: 40px;
+      padding: .4rem 1.1rem;
+      font-weight: 700;
+      font-size: .88rem;
+      color: #ff6694;
+    }
+
+    /* GRILA ECHIPELOR DIN PRIMUL SEZON — afișează cele 22 de echipe fondatoare
+       ca etichete în grilă. Coloanele se ajustează automat: minim 160px fiecare,
+       câte încap pe linie. La hover, fiecare etichetă capătă un fundal verde subtil. */
+    .teams-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: .5rem;
+      margin: 1rem 0;
+    }
+
+    .team-tag {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 4px;
+      padding: .5rem .8rem;
+      font-size: .85rem;
+      text-align: center;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .team-tag:hover {
+      background: rgba(0,255,133,.08);
+      border-color: rgba(0,255,133,.3);
+    }
+
+    /* SUBTITLUL DE NIVEL 3 (h3) — folosit pentru numele jucătorilor în Cap. 4
+       (ex: "Alan Shearer", "Roy Keane"). Mai mic și alb față de h2-ul verde. */
+    .section-block h3 {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--pl-white);
+      margin-bottom: .5rem;
+      margin-top: 1.4rem;
+    }
+
+    /* =========================================================
+       ANIMAȚIA fadeUp — folosită de toate elementele din hero
+       Pornește de la opacity:0 și translateY(20px) (invizibil + deplasat în jos)
+       și ajunge la opacity:1 și translateY(0) (vizibil + la locul lui).
+       Durata și întârzierea sunt setate individual pe fiecare element.
+       ========================================================= */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* =========================================================
+       FOOTER — bara de jos a site-ului
+       Conține link-urile bibliografice și informațiile despre autor.
+       Separat de conținut printr-o linie orizontală semi-transparentă.
+       ========================================================= */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      border-top: 1px solid rgba(255,255,255,.07);
+      color: var(--pl-grey);
+      font-size: .8rem;
+      letter-spacing: .04em;
+    }
+
+    footer a {
+      color: var(--pl-green);
+      text-decoration: none;
+    }
+
+    /* =========================================================
+       ADAPTARE PENTRU ECRANE MICI (MOBIL) — @media query
+       Când lățimea ecranului este sub 700px (telefon / tabletă mică):
+       - Ascundem bara de link-uri orizontale din nav
+       - Afișăm butonul hamburger (3 linii)
+       - Când hamburgerul este apăsat (.open), afișăm link-urile
+         pe verticală, într-un meniu derulant sub bara de nav
+       ========================================================= */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: var(--nav-h);
+        left: 0; right: 0;
+        background: rgba(30,4,34,.98);
+        padding: 1rem 1.5rem 2rem;
+        gap: .3rem;
+        animation: slideDown .3s ease;
+      }
+    }
+
+    /* LINK-UL ACTIV DIN NAV — link-ul paginii curente devine verde,
+       astfel utilizatorul vede mereu pe ce pagină se află. */
+    .nav-links a.active {
+      color: var(--pl-green);
+    }
