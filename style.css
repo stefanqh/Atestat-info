@@ -1,7 +1,7 @@
 /* =========================================================
    VARIABILE GLOBALE DE CULOARE ȘI STIL
    ========================================================= */
-:root {
+:root { /* Variabile globale de culoare și stil */
   --pl-purple: #38003c;
   --pl-green:  #00ff85;
   --pl-white:  #f4f4f4;
@@ -15,11 +15,11 @@
 /* =========================================================
    RESET ȘI STILURI DE BAZĂ
    ========================================================= */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; } /* Resetare stiluri implicite pentru toate elementele */
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; } /* Scroll lin pe pagină */
 
-body {
+body { /* Stiluri de bază pentru body: fundal, font, culoare text, etc. */
   background: var(--pl-purple);
   color: var(--pl-white);
   font-family: 'Barlow', sans-serif;
@@ -32,7 +32,7 @@ body {
 /* =========================================================
    BARA DE NAVIGARE
    ========================================================= */
-nav {
+nav { /* Bara de navigare fixă sus, cu efect blur și animație la afișare */
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
@@ -47,12 +47,12 @@ nav {
   animation: slideDown .6s ease both;
 }
 
-@keyframes slideDown {
+@keyframes slideDown { /* Animație pentru apariția barei de navigare */
   from { transform: translateY(-100%); opacity: 0; }
   to   { transform: translateY(0);     opacity: 1; }
 }
 
-.nav-brand {
+.nav-brand { /* Grup logo + text brand în nav */
   display: flex;
   align-items: center;
   gap: .7rem;
